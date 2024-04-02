@@ -4,6 +4,7 @@ import { orange_crm } from '../../../projects/orangeCRM/pages/orangeCRMPages';
 describe("OrangeCRM Login basic tests", () => {
 
     beforeEach(() => {
+        //cy.loginCRM(Cypress.env('ORANGE_CRM_USERNAME'),Cypress.env('ORANGE_CRM_PASSWORD'),Cypress.env('ORANGE_CRM_URL'));
         cy.visit(Cypress.env('ORANGE_CRM_URL'));
         cy.title().should("eq", "OrangeHRM");
         orange_crm.companyUsername.type(Cypress.env('ORANGE_CRM_USERNAME'));
