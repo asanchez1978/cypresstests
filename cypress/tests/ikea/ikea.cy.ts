@@ -1,4 +1,4 @@
-import { ikea_insurance } from 'cypress/projects/orangeCRM/pages/ikeaPages';
+import { ikea_insurance } from 'cypress/projects/ikea/pages/ikeaPages';
 /// <reference types="Cypress" />
 
 const numberOfRooms = 6;
