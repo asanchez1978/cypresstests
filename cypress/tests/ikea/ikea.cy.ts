@@ -16,7 +16,7 @@ describe("Ikea", () => {
         ikea_insurance.ikeaCookies.should("be.visible").click();
         ikea_insurance.ikeaQuestionTitle("How many rooms does your home have?").should("be.visible");
         ikea_insurance.ikeaRoomsValues.invoke('val').then(val => {
-            defaultRoomsValue = parseFloat(val);
+            defaultRoomsValue = parseFloat(String(val));
             cy.log("Initial rooms value:",defaultRoomsValue);
             cy.wait(1000);
 
