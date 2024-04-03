@@ -5,6 +5,11 @@ const numberOfRooms = 6;
 const moreThan14 = 3;
 const youngerThan14 = 1;
 const furnitureType = "2";
+const ownerType = "1";
+const cityOrPostcode = "Neuchâtel";
+const cityOrPostcodeOption = "0";
+const dateOfBirth= "10101978"
+
 let defaultGetValue: number;
 
 describe("Ikea", () => {
@@ -48,6 +53,29 @@ describe("Ikea", () => {
         ikea_insurance.furnitureIkeaType(furnitureType).click({force: true});
 
         ikea_insurance.ikeaSubmitButton.click();
+
+        // Set the ownership type
+        ikea_insurance.ikeaTypeOfOwnershipTittle.should("be.visible");
+        ikea_insurance.ownershipIkeaType(ownerType).click({force: true});
+
+        ikea_insurance.ikeaSubmitButton.click();
+
+        // Set the city/postal code
+        ikea_insurance.ikeaQuestionTitle("Where is your main residence?").should("be.visible");
+        ikea_insurance.ikeaPostalCodeCity.click().type(cityOrPostcode);
+        ikea_insurance.ikeaPostalCodeCityOption(cityOrPostcodeOption).click();
+
+        ikea_insurance.ikeaSubmitButton.click();
+
+        // Set the date of birth
+        ikea_insurance.ikeaQuestionTitle("What is your date of birth?").should("be.visible");
+        ikea_insurance.ikeaDOB.click().type(dateOfBirth);
+
+        ikea_insurance.ikeaSubmitButton.click();
+
+        // Check the final process
+
+        ikea_insurance.ikeaFirstSteepProcess.should("be.visible");
 
 
     });
