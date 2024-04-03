@@ -4,6 +4,7 @@ import { ikea_insurance } from 'cypress/projects/ikea/pages/ikeaPages';
 const numberOfRooms = 6;
 const moreThan14 = 3;
 const youngerThan14 = 1;
+const furnitureType = "2";
 let defaultGetValue: number;
 
 describe("Ikea", () => {
@@ -42,9 +43,12 @@ describe("Ikea", () => {
 
         ikea_insurance.ikeaSubmitButton.click();
 
+        // Set the Furniture type
         ikea_insurance.ikeaQuestionTitle("How is your home furnished?").should("be.visible");
-        ikea_insurance.furnitureIkeaType("2").click();
+        ikea_insurance.furnitureIkeaType(furnitureType).click({force: true});
 
         ikea_insurance.ikeaSubmitButton.click();
+
+
     });
 })
